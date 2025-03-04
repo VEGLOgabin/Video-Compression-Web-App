@@ -13,10 +13,29 @@ from rest_framework.response import Response
 from .tasks import delete_video
 
 
-class VideoUploadView(APIView):
+from rest_framework import viewsets
+from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import status
+from django.http import FileResponse
+from django.conf import settings
+import os
+
+from .models import Video
+from .serializers import VideoSerializer
+from .utils import compress_video
+from .tasks import delete_video
+
+
+class VideoViewSet(viewsets.ModelViewSet):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer
     parser_classes = (MultiPartParser, FormParser)
-    def post(self, request, *args, **kwargs):
-        video_serializer = VideoSerializer(data=request.data)
+
+    def create(self, request, *args, **kwargs):
+        """Handle video upload and compression."""
+        video_serializer = self.get_serializer(data=request.data)
         if video_serializer.is_valid():
             video = video_serializer.save()
 
@@ -30,13 +49,14 @@ class VideoUploadView(APIView):
             # Schedule the deletion task to run after 1 hour
             delete_video.apply_async(args=[video.id], countdown=3600)
 
-            return Response(video_serializer.data, status=201)
-        return Response(video_serializer.errors, status=400)
+            return Response(video_serializer.data, status=status.HTTP_201_CREATED)
+        return Response(video_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class VideoDownloadView(APIView):
-    def get(self, request, video_id, *args, **kwargs):
+    @action(detail=True, methods=['get'])
+    def download(self, request, pk=None):
+        """Handle video download."""
         try:
-            video = Video.objects.get(id=video_id)
+            video = Video.objects.get(pk=pk)
             if video.expired:
                 return Response({"error": "This video has expired."}, status=status.HTTP_410_GONE)
 
@@ -44,7 +64,7 @@ class VideoDownloadView(APIView):
             video.download_count += 1
             video.save()
 
-            # Return the compressed video file as a response
+            # Return the compressed video file
             response = FileResponse(video.compressed_video)
             response['Content-Disposition'] = f'attachment; filename="{video.original_name}"'
             return response

@@ -4,11 +4,11 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Farming Matket API",
+        title="Video file size compressor API",
         default_version='v1',
-        description="We are helping agriculture farmers to have access to a  good online market",
-        contact=openapi.Contact(email="contact.agriculturemarket@gmail.com"),
-        license=openapi.License(name="BSD License"),
+        description="We are helping all users across the world to compress their video file",
+        contact=openapi.Contact(email="contact.video@gmail.com"),
+        license=openapi.License(name="MIT License"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),

@@ -1,8 +1,10 @@
-# videos/urls.py
-from django.urls import path
-from .views import VideoUploadView, VideoDownloadView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import VideoViewSet
+
+router = DefaultRouter()
+router.register(r'videos', VideoViewSet, basename='video')
 
 urlpatterns = [
-    path('upload/', VideoUploadView.as_view(), name='video-upload'),
-    path('download/<int:video_id>/', VideoDownloadView.as_view(), name='video-download'),
+    path('', include(router.urls)),
 ]
