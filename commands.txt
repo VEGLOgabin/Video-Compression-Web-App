@@ -7,3 +7,4 @@ mkdir Backend
 cd Backend
 django-admin startproject config .
 mkdir apps
+pip install drf-spectacular[sidecar]
