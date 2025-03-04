@@ -1,9 +1,9 @@
 # TODO: Video Compression Web App Development
 
 ## Backend (Django + DRF + FFmpeg)
-- [ ] Set up Django project and configure settings
-- [ ] Install and configure Django REST Framework (DRF)
-- [ ] Integrate DRF Spectacular for API documentation (Swagger/OpenAPI)
+- [ DONE ] Set up Django project and configure settings
+- [ DONE ] Install and configure Django REST Framework (DRF)
+- [ DONE ] Integrate DRF Spectacular for API documentation (Swagger/OpenAPI)
 - [ ] Implement video upload endpoint with Django file handling
 - [ ] Configure file storage (Local/AWS S3)
 - [ ] Integrate FFmpeg for video compression (H.265 - libx265)
