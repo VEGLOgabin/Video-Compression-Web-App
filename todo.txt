@@ -4,14 +4,14 @@
 - [ DONE ] Set up Django project and configure settings
 - [ DONE ] Install and configure Django REST Framework (DRF)
 - [ DONE ] Integrate DRF Spectacular for API documentation (Swagger/OpenAPI)
-- [ ] Implement video upload endpoint with Django file handling
-- [ ] Configure file storage (Local/AWS S3)
-- [ ] Integrate FFmpeg for video compression (H.265 - libx265)
-- [ ] Implement single video compression with adjustable settings (CRF, bitrate, preset)
-- [ ] Add batch video compression support
-- [ ] Expose API endpoints for frontend interaction
-- [ ] Set up Celery and Redis for async compression tasks
-- [ ] Implement download endpoint with link expiration
+- [ DONE ] Implement video upload endpoint with Django file handling
+- [ DONE ] Configure file storage (Local/AWS S3)
+- [ DONE ] Integrate FFmpeg for video compression (H.265 - libx265)
+- [ DONE ] Implement single video compression with adjustable settings (CRF, bitrate, preset)
+- [ DONE ] Add batch video compression support
+- [ DONE ] Expose API endpoints for frontend interaction
+- [ DONE ] Set up Celery and Redis for async compression tasks
+- [ DONE ] Implement download endpoint with link expiration
 - [ ] Secure API with CORS, rate limiting, and authentication (if needed)
 
 ## Frontend (Vue.js + Bulma)
