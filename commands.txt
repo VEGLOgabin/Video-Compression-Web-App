@@ -10,3 +10,9 @@ mkdir apps
 pip install drf-spectacular[sidecar]
 python manage.py collectstatic
 pip install celery redis ffmpeg-python
+cd apps
+python ../manage.py users
+python ../manage.py video
+[update apps/users/apps.py]  name="users" ---->  name="apps.users"
+[update apps/video/apps.py] name = "video" ---> name = "apps.video"
+python manage.py makemigrations

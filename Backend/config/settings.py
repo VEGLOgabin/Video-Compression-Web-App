@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'drf_spectacular_sidecar',
     "rest_framework_simplejwt",
 
-    "apps.users",
-    "apps.video",
+    'apps.users',
+    'apps.video',
 ]
 
 MIDDLEWARE = [
