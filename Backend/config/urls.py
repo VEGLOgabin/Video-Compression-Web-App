@@ -10,6 +10,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("video/", include("apps.video.urls")),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:
     path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
