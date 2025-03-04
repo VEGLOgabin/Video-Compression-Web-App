@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     "corsheaders",
     'drf_spectacular_sidecar',
     "rest_framework_simplejwt",
+
+    "apps.users",
+    "apps.video",
 ]
 
 MIDDLEWARE = [
