@@ -1,0 +1,15 @@
+# Ignore the virtual environment directory
+env/
+
+# Other common ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.env
+.DS_Store
+.idea/
+.vscode/
