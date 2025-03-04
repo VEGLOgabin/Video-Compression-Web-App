@@ -17,3 +17,7 @@ class Video(models.Model):
 
     def __str__(self):
         return self.original_name
+    
+    class Meta:
+        ordering = ("-uploaded_at",)
+        db_table = 'Video'
