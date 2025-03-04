@@ -1,0 +1,50 @@
+# TODO: Video Compression Web App Development
+
+## Backend (Django + DRF + FFmpeg)
+- [ ] Set up Django project and configure settings
+- [ ] Install and configure Django REST Framework (DRF)
+- [ ] Integrate DRF Spectacular for API documentation (Swagger/OpenAPI)
+- [ ] Implement video upload endpoint with Django file handling
+- [ ] Configure file storage (Local/AWS S3)
+- [ ] Integrate FFmpeg for video compression (H.265 - libx265)
+- [ ] Implement single video compression with adjustable settings (CRF, bitrate, preset)
+- [ ] Add batch video compression support
+- [ ] Expose API endpoints for frontend interaction
+- [ ] Set up Celery and Redis for async compression tasks
+- [ ] Implement download endpoint with link expiration
+- [ ] Secure API with CORS, rate limiting, and authentication (if needed)
+
+## Frontend (Vue.js + Bulma)
+- [ ] Initialize Vue 3 project with Vite
+- [ ] Set up Vue Router and Pinia (if state management is required)
+- [ ] Create a responsive UI using Bulma CSS
+- [ ] Implement drag-and-drop file upload
+- [ ] Display upload progress with validation messages
+- [ ] Add compression settings UI (CRF, bitrate, preset selection)
+- [ ] Show real-time compression progress
+- [ ] Implement download functionality for compressed files
+- [ ] Display uploaded/compressed video history (if authentication is enabled)
+
+## Database & Storage
+- [ ] Configure PostgreSQL/SQLite for storing video metadata
+- [ ] Store uploaded video details and compression settings
+- [ ] Implement database cleanup for expired downloads
+
+## Deployment & Optimization
+- [ ] Set up Docker and Docker Compose for containerized deployment
+- [ ] Configure Nginx as a reverse proxy
+- [ ] Deploy backend and frontend to DigitalOcean/AWS
+- [ ] Implement background task monitoring with Flower
+- [ ] Optimize FFmpeg parameters for best quality-size balance
+- [ ] Set up CI/CD pipeline for automated deployment
+
+## Future Enhancements
+- [ ] Implement user authentication with Django Auth/JWT
+- [ ] Add user dashboard to manage uploaded videos
+- [ ] Support additional formats (WebM, MPEG, etc.)
+- [ ] Enable cloud-based processing for scalability
+- [ ] Improve mobile UI/UX for better experience
+
+# Notes
+- Ensure FFmpeg is installed and correctly configured on the server
+- Use environment variables for sensitive configurations
