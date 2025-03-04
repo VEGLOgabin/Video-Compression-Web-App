@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'drf_spectacular',
+    # 'drf_spectacular',
+    "drf_yasg",
     "rest_framework",
     "corsheaders",
-    'drf_spectacular_sidecar',
+    # 'drf_spectacular_sidecar',
     "rest_framework_simplejwt",
 
     'apps.users',
@@ -162,13 +163,33 @@ REST_FRAMEWORK = {
     ],
 }
 
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+}
 
 
 
-SPECTACULAR_SETTINGS = {
-    'SWAGGER_UI_DIST': 'SIDECAR',  
-    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
-    'REDOC_DIST': 'SIDECAR',
+# SPECTACULAR_SETTINGS = {
+#     'SWAGGER_UI_DIST': 'SIDECAR',  
+#     'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+#     'REDOC_DIST': 'SIDECAR',
+# }
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    },
+    'USE_SESSION_AUTH': False,
 }
 
 

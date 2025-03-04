@@ -1,7 +1,5 @@
 # videos/views.py
 from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.response import Response
-from rest_framework.views import APIView
 from .models import Video
 from .serializers import VideoSerializer
 from .utils import compress_video
